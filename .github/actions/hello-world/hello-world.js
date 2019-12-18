@@ -2,8 +2,12 @@ const core = require('@actions/core');
 const github = require('@actions/github');
 
 try {
+  console.log('In the beginning');
   const token = process.env['GITHUB_TOKEN'];
+  console.log(`Token: ${token}`);
   if (!token) return;
+
+  console.log('About to octocat');
 
   // Create the octokit client
   const octokit = new github.GitHub(token);
