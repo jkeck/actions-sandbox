@@ -1,6 +1,6 @@
 on:
   pull_request:
-    types: [opened closed]
+    types: [opened, edited]
 
 jobs:
   hello_world_job:
@@ -14,6 +14,7 @@ jobs:
         uses: ./.github/actions/hello-world # Uses an action in the root directory
         id: hello
         with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
           who-to-greet: 'Giuseppe the Octocat'
       # Use the output from the `hello` step
       - name: Get the output time
