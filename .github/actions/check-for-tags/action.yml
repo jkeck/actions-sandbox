@@ -1,0 +1,13 @@
+name: 'Add a release for tags'
+description: 'Add a release (with a compare link) for a tag if there is none'
+inputs:
+  repo-token:  # GitHub API Token
+    description: 'The GitHub API token'
+    required: true
+    default: 'GHAPITOKEN'
+outputs:
+  time: # id of output
+    description: 'The time the comment was added'
+runs:
+  using: 'node12'
+  main: 'addRelease.js'
