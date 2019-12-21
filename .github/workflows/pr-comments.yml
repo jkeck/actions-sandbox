@@ -1,21 +1,19 @@
 on:
   pull_request:
-    types: [opened, edited]
+    types: [edited]
 
 jobs:
   hello_world_job:
     runs-on: ubuntu-latest
-    name: A job to say hello
+    name: A job that will post a comment with the before and after content when the body of the pull request is changed
     steps:
       # To use this repository's private action, you must check out the repository
       - name: Checkout
         uses: actions/checkout@v1
-      - name: Hello world action step
-        uses: ./.github/actions/hello-world # Uses an action in the root directory
-        id: hello
+      - name: Add comment with pull request body diff
+        uses: ./.github/actions/comment-pr-body-diff # Uses an action in the root directory
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
-          who-to-greet: 'Giuseppe the Octocat'
       # Use the output from the `hello` step
       - name: Get the output time
         run: echo "The time was ${{ steps.hello.outputs.time }}"

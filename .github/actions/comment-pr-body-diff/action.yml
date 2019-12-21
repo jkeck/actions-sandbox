@@ -1,0 +1,13 @@
+name: 'Comment PR Body diff'
+description: 'Greet someone and record the time'
+inputs:
+  repo-token:  # GitHub API Token
+    description: 'The GitHub API token'
+    required: true
+    default: 'GHAPITOKEN'
+outputs:
+  time: # id of output
+    description: 'The time the comment was added'
+runs:
+  using: 'node12'
+  main: 'comment.js'
