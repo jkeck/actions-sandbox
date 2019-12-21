@@ -19,6 +19,7 @@
   "homepage": "https://github.com/jkeck/actions-sandbox#readme",
   "dependencies": {
     "@actions/core": "^1.2.0",
-    "@actions/github": "^2.0.0"
+    "@actions/github": "^2.0.0",
+    "compare-versions": "^3.5.1"
   }
 }
